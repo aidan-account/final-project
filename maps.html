@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {packages: ['map']});
+    google.charts.setOnLoadCallback(drawMap);
+
+    function drawMap () {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Address');
+      data.addColumn('string', 'Location');
+      data.addColumn('string', 'Marker')
+
+      data.addRows([
+       	  [41.0398, -73.6122, 'Greenwich High School','pink'],
+          [41.020743,-73.635352, "Boxcar Cantina", 'blue'],
+          [41.041831,-73.583571,"El Charrito", 'blue'],
+          [41.036406,-73.603838,'Tomatillo Taco Joint', 'blue'],
+          [41.055813,-73.525459,'Casa Villa','green'],
+          [41.106564,-73.548439,'Ole Mole','green'],
+          [41.054949,-73.540833,'Bartaco Stamford','green'],
+          [41.056176,-73.538188,'Cantina Tequila Bar & Southwest Grill','green'],
+          [41.056422,-73.538863,'Picante! Fresh Mexican Grill','green']
+			]);
+
+      var url = 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/';
+
+      var options = {
+        zoomLevel: 6,
+        showTip: true,
+        useMapTypeControl: true,
+        icons: {
+          blue: {
+            normal:   url + 'Map-Marker-Ball-Azure-icon.png',
+            selected: url + 'Map-Marker-Ball-Right-Azure-icon.png'
+          },
+          green: {
+            normal:   url + 'Map-Marker-Push-Pin-1-Chartreuse-icon.png',
+            selected: url + 'Map-Marker-Push-Pin-1-Right-Chartreuse-icon.png'
+          },
+          pink: {
+            normal:   url + 'Map-Marker-Ball-Pink-icon.png',
+            selected: url + 'Map-Marker-Ball-Right-Pink-icon.png'
+          }
+        }
+      };
+      var map = new google.visualization.Map(document.getElementById('map_div'));
+
+      map.draw(data, options);
+    }
+
+    </script>
+  </head>
+
+  <body>
+    <div id="map_div" style="height: 500px; width: 900px"></div>
+  </body>
+</html>
+
+
+
+
+
+
