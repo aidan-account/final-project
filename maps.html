@@ -8,13 +8,8 @@
     google.charts.load('current', {packages: ['map']});
     google.charts.setOnLoadCallback(drawMap);
 
-    function drawMap () {
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Address');
-      data.addColumn('string', 'Location');
-      data.addColumn('string', 'Marker')
-
-      data.addRows([
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
        	  [41.0398, -73.6122, 'Greenwich High School','pink'],
           [41.020743,-73.635352, "Boxcar Cantina", 'blue'],
           [41.041831,-73.583571,"El Charrito", 'blue'],
